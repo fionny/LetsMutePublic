@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lets Mute — User Guide</title>
+  <style>
+    :root {
+      --accent: #007AFF;
+      --red: #FF3B30;
+      --green: #34C759;
+      --orange: #FF9500;
+      --bg: #ffffff;
+      --surface: #f5f5f7;
+      --surface2: #ebebed;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --border: #d2d2d7;
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --surface: #1c1c1e;
+        --surface2: #2c2c2e;
+        --text: #f5f5f7;
+        --muted: #98989d;
+        --border: #38383a;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Hero ── */
+    header {
+      text-align: center;
+      padding: 72px 24px 56px;
+    }
+    .app-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 22px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+    }
+    header h1 {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+    .tagline {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* ── Layout ── */
+    main { max-width: 720px; margin: 0 auto; padding: 0 24px 96px; }
+
+    /* ── Section heading ── */
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 48px 0 16px;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    .card h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      letter-spacing: -0.2px;
+    }
+    .card p + p { margin-top: 10px; }
+    .card ul { padding-left: 20px; margin-top: 10px; }
+    .card li { margin-bottom: 7px; }
+
+    /* ── Step list ── */
+    .steps { counter-reset: step; list-style: none; padding: 0; }
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 18px;
+      align-items: flex-start;
+    }
+    .steps li::before {
+      content: counter(step);
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .steps li div { flex: 1; }
+    .steps li strong { display: block; margin-bottom: 3px; }
+
+    /* ── Feature grid ── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 4px;
+    }
+    .feature {
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+    }
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .feature h3 { font-size: 15px; font-weight: 600; margin-bottom: 5px; }
+    .feature p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+    /* ── Hotkey pill ── */
+    kbd {
+      display: inline-block;
+      background: var(--surface2);
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-family: -apple-system, monospace;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    /* ── App list ── */
+    .app-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .app-pill {
+      background: var(--surface2);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* ── Status dots ── */
+    .dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    .dot.green  { background: var(--green); }
+    .dot.red    { background: var(--red); }
+    .dot.orange { background: var(--orange); }
+
+    /* ── Callout ── */
+    .callout {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+    .callout-icon { font-size: 20px; flex-shrink: 0; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Hero ── -->
+<header>
+  <img class="app-icon" src="icon.png" alt="Lets Mute">
+  <h1>Lets Mute</h1>
+  <p class="tagline">One hotkey to mute you in any meeting — without switching apps.</p>
+</header>
+
+<main>
+
+  <!-- ── What it does ── -->
+  <p class="section-label">Overview</p>
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">🎙️</div>
+      <h3>Global Hotkey</h3>
+      <p>Press your hotkey from any app and your mic toggles instantly.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔄</div>
+      <h3>Auto-routes</h3>
+      <p>Detects which app holds the mic and sends the command there.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">⌚</div>
+      <h3>Watch &amp; iPhone</h3>
+      <p>Mute from your wrist or phone without touching your Mac.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔒</div>
+      <h3>Private</h3>
+      <p>No servers. No accounts. No data leaves your network.</p>
+    </div>
+  </div>
+
+  <!-- ── Supported apps ── -->
+  <p class="section-label">Supported apps</p>
+  <div class="card">
+    <p>Lets Mute works with any of these. It detects which one is active automatically.</p>
+    <div class="app-list">
+      <span class="app-pill">Zoom</span>
+      <span class="app-pill">Microsoft Teams</span>
+      <span class="app-pill">Webex</span>
+      <span class="app-pill">Google Meet</span>
+    </div>
+    <p style="margin-top:14px; font-size:15px; color:var(--muted);">Google Meet is supported via Chrome, Arc, Edge, and Safari through AppleScript — the browser must be running and you must grant Automation permission the first time.</p>
+  </div>
+
+  <!-- ── Setup ── -->
+  <p class="section-label">Getting started</p>
+  <div class="card">
+    <h2>First launch</h2>
+    <ul class="steps">
+      <li>
+        <div>
+          <strong>Grant Accessibility permission</strong>
+          The Setup Wizard opens automatically. Click <em>Open Settings</em> next to Accessibility, tick the checkbox for Lets Mute, and return to the wizard.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Set your hotkey</strong>
+          The default is <kbd>F16</kbd> (the mute key on some keyboards) and <kbd>⌥⌘M</kbd> as a fallback. Change either in the wizard or later in Settings → Hotkeys.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Pair your iPhone or Watch (optional)</strong>
+          Open the Lets Mute iPhone app, enter the 6-digit code shown in the wizard, and tap Connect. Your Watch pairs automatically once the iPhone app is installed and connected.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Click "Start Using Lets Mute"</strong>
+          The app lives in your menu bar. A mic icon shows your current status at a glance.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ── Menu bar ── -->
+  <p class="section-label">Menu bar icon</p>
+  <div class="card">
+    <p>The menu bar icon reflects your current mute state at all times:</p>
+    <ul style="margin-top:14px;">
+      <li><strong>🎙 Mic (filled)</strong> — you are unmuted and live</li>
+      <li><strong>🎙/ Mic with slash</strong> — you are muted</li>
+    </ul>
+    <p style="margin-top:14px;">Click the icon to open the menu. From there you can access Settings, re-run the Setup Wizard, or quit the app.</p>
+  </div>
+
+  <!-- ── Hotkeys ── -->
+  <p class="section-label">Hotkeys</p>
+  <div class="card">
+    <h2>Toggle mute</h2>
+    <p>Press your configured hotkey (default <kbd>F16</kbd> or <kbd>⌥⌘M</kbd>) from any app. Lets Mute detects which meeting app is active and toggles its mic.</p>
+  </div>
+  <div class="card">
+    <h2>Push-to-talk</h2>
+    <p>Configure a Push-to-Talk key in Settings → Hotkeys. <strong>Hold</strong> the key to unmute; <strong>release</strong> to re-mute. Great for quick comments in a meeting without taking your hands off the keyboard.</p>
+  </div>
+  <div class="card">
+    <h2>Leave meeting</h2>
+    <p>Optionally configure a Leave combo in Settings → Hotkeys. Pressing it once fires the "end call" button in the active meeting app — no clicking required.</p>
+  </div>
+
+  <!-- ── HUD ── -->
+  <p class="section-label">On-screen indicator</p>
+  <div class="card">
+    <h2>Mute HUD</h2>
+    <p>A small floating indicator appears above your Dock for 1.8 seconds whenever your mute state changes. It disappears on its own — no interaction needed.</p>
+    <p>If you speak while muted, an <strong>"You're on mute!"</strong> warning appears instead. This requires the microphone permission (to detect audio level) and can be turned off in Settings → General → Overlays.</p>
+  </div>
+
+  <!-- ── Automation ── -->
+  <p class="section-label">Automatic features</p>
+  <div class="card">
+    <h2>Auto-mute on screen lock</h2>
+    <p>When your screen locks or your session goes to sleep, Lets Mute automatically mutes you so you don't accidentally broadcast audio. Toggle in Settings → General → Automation.</p>
+  </div>
+  <div class="card">
+    <h2>Auto-mute on headphone disconnect</h2>
+    <p>If your headphones disconnect mid-call, Lets Mute mutes you immediately to prevent your call audio being broadcast through your Mac's speakers.</p>
+  </div>
+  <div class="card">
+    <h2>Meeting-end notification</h2>
+    <p>When a call ends (the meeting app releases the mic), Lets Mute can send a notification showing how long the meeting lasted. Enable in Settings → General → Automation.</p>
+  </div>
+  <div class="card">
+    <h2>Next meeting in menu bar</h2>
+    <p>With Calendar access granted, Lets Mute shows your next upcoming conference meeting directly in the menu bar so you always know what's coming. Enable in Settings → General → Automation.</p>
+  </div>
+
+  <!-- ── iPhone ── -->
+  <p class="section-label">iPhone app</p>
+  <div class="card">
+    <h2>Pairing</h2>
+    <ol class="steps">
+      <li><div>Open the Lets Mute iPhone app.</div></li>
+      <li><div>On your Mac, open Settings → Connections or the Setup Wizard — note the 6-digit pairing code.</div></li>
+      <li><div>Type the code in the iPhone app and tap Connect.</div></li>
+    </ol>
+    <p style="margin-top:14px;">Both devices must be on the same Wi-Fi network. Once paired, the iPhone reconnects automatically when both are on the same network.</p>
+  </div>
+  <div class="card">
+    <h2>iPhone controls</h2>
+    <ul>
+      <li><strong>Mute tab</strong> — tap the large circle to toggle mute. Green = live, red = muted.</li>
+      <li><strong>Push to Talk tab</strong> — hold the button to speak; release to re-mute.</li>
+      <li><strong>Leave tab</strong> — hold for 3 seconds to leave the current call.</li>
+    </ul>
+  </div>
+
+  <!-- ── Watch ── -->
+  <p class="section-label">Apple Watch app</p>
+  <div class="card">
+    <h2>Watch controls</h2>
+    <p>The Watch app has four pages (swipe to navigate):</p>
+    <ul style="margin-top:10px;">
+      <li><strong>Toggle</strong> — tap Mute / Unmute button.</li>
+      <li><strong>Push to Talk</strong> — hold the pill to speak, release to re-mute.</li>
+      <li><strong>Leave Meeting</strong> — hold 3 seconds to leave the call.</li>
+      <li><strong>Unpair</strong> — disconnect this Watch from your Mac.</li>
+    </ul>
+    <p style="margin-top:12px;">Haptic feedback confirms every action.</p>
+  </div>
+
+  <!-- ── Permissions ── -->
+  <p class="section-label">Permissions explained</p>
+  <div class="card">
+    <table style="width:100%; border-collapse:collapse; font-size:15px;">
+      <thead>
+        <tr style="border-bottom:1px solid var(--border);">
+          <th style="text-align:left; padding:8px 0; font-weight:600;">Permission</th>
+          <th style="text-align:left; padding:8px 0; font-weight:600;">Why it's needed</th>
+          <th style="text-align:left; padding:8px 0; font-weight:600; width:80px;">Required?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px 0;"><strong>Accessibility</strong></td>
+          <td style="padding:10px 0; color:var(--muted);">Read and click the mute button in Zoom, Teams, and Webex</td>
+          <td style="padding:10px 0; color:var(--red);">Yes</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px 0;"><strong>Microphone</strong></td>
+          <td style="padding:10px 0; color:var(--muted);">Detect whether your mic is active; power the "speaking while muted" alert</td>
+          <td style="padding:10px 0; color:var(--orange);">Optional</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px 0;"><strong>Calendars</strong></td>
+          <td style="padding:10px 0; color:var(--muted);">Show your next meeting in the menu bar</td>
+          <td style="padding:10px 0; color:var(--orange);">Optional</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 0;"><strong>Automation</strong></td>
+          <td style="padding:10px 0; color:var(--muted);">Control your browser to mute Google Meet</td>
+          <td style="padding:10px 0; color:var(--orange);">For Meet only</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── Troubleshooting ── -->
+  <p class="section-label">Troubleshooting</p>
+
+  <div class="callout">
+    <span class="callout-icon">💡</span>
+    <div>After granting or revoking a permission, the change may take a few seconds to reflect. You don't need to restart Lets Mute.</div>
+  </div>
+
+  <div class="card">
+    <h2>Hotkey doesn't work</h2>
+    <ul>
+      <li>Check that Accessibility is granted in System Settings → Privacy &amp; Security → Accessibility.</li>
+      <li>Make sure a meeting app (Zoom, Teams, etc.) is actually running — Lets Mute only fires when a supported app is detected.</li>
+      <li>Try reassigning the hotkey in Settings → Hotkeys in case another app claimed the same combo.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Zoom mute state shows incorrectly</h2>
+    <p>Lets Mute reads mute state via the Accessibility API. If the Zoom window is hidden or minimized for a long time, it may fall back to optimistic tracking (it assumes the last known state is still correct). Opening the Zoom window for a moment re-syncs the state.</p>
+  </div>
+
+  <div class="card">
+    <h2>Google Meet doesn't mute</h2>
+    <ul>
+      <li>Make sure Automation permission is granted for your browser in System Settings → Privacy &amp; Security → Automation.</li>
+      <li>The first time you use it, macOS will prompt you — click Allow.</li>
+      <li>Meet must be open in a tab (not in a separate window) in a supported browser.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>iPhone app can't find Mac</h2>
+    <ul>
+      <li>Both devices must be on the same Wi-Fi network.</li>
+      <li>The Mac app must be running (check your menu bar).</li>
+      <li>Firewall software may block local Bonjour discovery — check your firewall settings.</li>
+      <li>If still stuck, tap Settings → Unpair from Mac and re-pair using the code in the Mac app.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Menu bar icon not changing</h2>
+    <p>The icon updates based on the mute state reported by the active driver's Accessibility API. If the driver returns no data (e.g. the app is not running or AX is unavailable), the icon remains in its last known state. Press your hotkey again to force a toggle.</p>
+  </div>
+
+  <!-- ── Contact ── -->
+  <p class="section-label">Support</p>
+  <div class="card">
+    <p>Have a question or found a bug? Email <a href="mailto:fionnyboy@gmail.com">fionnyboy@gmail.com</a> and we'll get back to you.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Fionn McGinley &mdash; <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>

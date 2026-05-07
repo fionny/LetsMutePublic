@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lets Mute — Privacy Policy</title>
+  <style>
+    :root {
+      --accent: #007AFF;
+      --bg: #ffffff;
+      --surface: #f5f5f7;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --border: #d2d2d7;
+      --radius: 16px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --surface: #1c1c1e;
+        --text: #f5f5f7;
+        --muted: #98989d;
+        --border: #38383a;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      text-align: center;
+      padding: 64px 24px 48px;
+    }
+    header img {
+      width: 90px;
+      height: 90px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    }
+    header h1 {
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    header p {
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: 15px;
+    }
+
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    section {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.2px;
+    }
+    p + p { margin-top: 12px; }
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+    li { margin-bottom: 6px; }
+
+    .badge {
+      display: inline-block;
+      background: #34C759;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="icon.png" alt="Lets Mute icon">
+  <h1>Privacy Policy</h1>
+  <p>Lets Mute &mdash; Updated May 2025</p>
+</header>
+
+<main>
+
+  <section>
+    <div class="badge">Short version</div>
+    <p>Lets Mute collects <strong>no personal data</strong>, sends <strong>nothing to any server</strong>, and never tracks you. Everything stays on your device.</p>
+  </section>
+
+  <section>
+    <h2>What Lets Mute does not collect</h2>
+    <p>We do not collect, store, or transmit:</p>
+    <ul>
+      <li>Names, email addresses, or any account information</li>
+      <li>Usage analytics or crash reports sent to us</li>
+      <li>Microphone audio — we only detect whether audio is flowing to determine if a call is active</li>
+      <li>Calendar event content — only the start time and title of conference meetings are used to display the upcoming meeting label in the menu bar</li>
+      <li>Any identifiers that could be used to track you across apps or websites</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Permissions used and why</h2>
+    <ul>
+      <li><strong>Accessibility</strong> — Required to read the mute/unmute button state in Zoom, Teams, and Webex, and to click it on your behalf when you press your hotkey.</li>
+      <li><strong>Microphone</strong> — Used only to detect whether your microphone is active (i.e. whether you are in a call), so the app knows when to show the "speaking while muted" warning. Audio is never recorded or transmitted.</li>
+      <li><strong>Calendars</strong> — Read-only access to find upcoming meetings so their start time can be shown in the menu bar. Event content is never stored or sent anywhere.</li>
+      <li><strong>Automation (AppleScript)</strong> — Used to identify and focus the Google Meet tab in your browser so the mic button can be toggled.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Local networking (iPhone &amp; Watch pairing)</h2>
+    <p>Lets Mute uses <strong>local network connections only</strong> (Bonjour over your Wi-Fi or direct link) to pair and communicate between the Mac app and the iPhone / Apple Watch apps. No data leaves your local network. No cloud relay is used.</p>
+    <p>A 32-byte random pairing token is stored in your device's secure Keychain and on the Mac. It is used only to authenticate commands between your own devices.</p>
+  </section>
+
+  <section>
+    <h2>Data stored on your device</h2>
+    <ul>
+      <li><strong>UserDefaults (Mac &amp; iPhone)</strong> — App settings such as your hotkey choices, appearance preference, and feature toggles.</li>
+      <li><strong>Keychain (Mac, iPhone, Watch)</strong> — The pairing token used to authenticate your devices to each other. This never leaves your devices.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Third-party services</h2>
+    <p>Lets Mute uses no third-party SDKs, analytics services, advertising networks, or crash reporting tools.</p>
+  </section>
+
+  <section>
+    <h2>Children's privacy</h2>
+    <p>Lets Mute does not knowingly collect any information from anyone, including children under 13.</p>
+  </section>
+
+  <section>
+    <h2>Changes to this policy</h2>
+    <p>If the privacy policy changes materially, we will update the date at the top of this page. As this app collects no data, changes are unlikely.</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Questions? Reach out at <a href="mailto:fionnyboy@gmail.com">fionnyboy@gmail.com</a>.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Fionn McGinley &mdash; <a href="guide.html">User Guide</a></p>
+</footer>
+
+</body>
+</html>
