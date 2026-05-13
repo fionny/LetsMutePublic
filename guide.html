@@ -247,13 +247,50 @@
   <p class="section-label">Supported apps</p>
   <div class="card">
     <p>Lets Mute works with any of these. It detects which one is active automatically.</p>
-    <div class="app-list">
+    <div class="app-list" style="margin-bottom:20px;">
       <span class="app-pill">Zoom</span>
       <span class="app-pill">Microsoft Teams</span>
       <span class="app-pill">Webex</span>
       <span class="app-pill">Google Meet</span>
     </div>
-    <p style="margin-top:14px; font-size:15px; color:var(--muted);">Google Meet is supported via Chrome, Arc, Edge, and Safari through AppleScript — the browser must be running and you must grant Automation permission the first time.</p>
+    <table style="width:100%; border-collapse:collapse; font-size:14px;">
+      <thead>
+        <tr style="border-bottom:1px solid var(--border);">
+          <th style="text-align:left; padding:8px 0; font-weight:600;">App</th>
+          <th style="text-align:center; padding:8px 4px; font-weight:600;">Mute / PTT</th>
+          <th style="text-align:center; padding:8px 4px; font-weight:600;">Camera</th>
+          <th style="text-align:center; padding:8px 4px; font-weight:600;">Leave meeting</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px 0; font-weight:500;">Zoom</td>
+          <td style="text-align:center; padding:10px 4px;"><span class="dot green"></span>Yes</td>
+          <td style="text-align:center; padding:10px 4px;"><span class="dot green"></span>Yes</td>
+          <td style="text-align:center; padding:10px 4px;"><span class="dot green"></span>Yes</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px 0; font-weight:500;">Microsoft Teams</td>
+          <td style="text-align:center; padding:10px 4px;"><span class="dot green"></span>Yes</td>
+          <td style="text-align:center; padding:10px 4px;"><span class="dot green"></span>Yes</td>
+          <td style="text-align:center; padding:10px 4px;"><span class="dot green"></span>Yes</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:10px 0; font-weight:500;">Webex</td>
+          <td style="text-align:center; padding:10px 4px;"><span class="dot green"></span>Yes</td>
+          <td style="text-align:center; padding:10px 4px;"><span class="dot green"></span>Yes</td>
+          <td style="text-align:center; padding:10px 4px;"><span class="dot green"></span>Yes</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 0; font-weight:500;">Google Meet †</td>
+          <td style="text-align:center; padding:10px 4px;"><span class="dot green"></span>Yes</td>
+          <td style="text-align:center; padding:10px 4px;"><span class="dot green"></span>Yes</td>
+          <td style="text-align:center; padding:10px 4px;"><span class="dot green"></span>Yes</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px; font-size:14px; color:var(--muted);"><strong>Zoom — host limitation:</strong> when you are the meeting host, remote leave will end the meeting for all participants instead of just removing you. If you are hosting, leave Zoom manually.</p>
+    <p style="margin-top:8px; font-size:13px; color:var(--muted);">† <strong>Google Meet</strong> is supported via your browser. Supported browsers: <strong>Google Chrome, Safari, Microsoft Edge, and Arc</strong>. Meet must be the active tab when you press your hotkey. Other browsers (Firefox, Brave, etc.) are not supported.</p>
   </div>
 
   <!-- ── Setup ── -->
@@ -291,12 +328,13 @@
   <!-- ── Menu bar ── -->
   <p class="section-label">Menu bar icon</p>
   <div class="card">
-    <p>The menu bar icon reflects your current mute state at all times:</p>
+    <p>The menu bar icon reflects your best-known mute state:</p>
     <ul style="margin-top:14px;">
-      <li><strong>🎙 Mic (filled)</strong> — you are unmuted and live</li>
-      <li><strong>🎙/ Mic with slash</strong> — you are muted</li>
+      <li><strong>🎙 Mic (filled)</strong> — unmuted / live</li>
+      <li><strong>🎙/ Mic with slash</strong> — muted</li>
     </ul>
-    <p style="margin-top:14px;">Click the icon to open the menu. From there you can access Settings, re-run the Setup Wizard, or quit the app.</p>
+    <p style="margin-top:14px;">For Zoom and Webex the icon stays in sync automatically via the Accessibility API. For Microsoft Teams — which does not expose its call controls to the Accessibility API — the icon tracks what Lets Mute has toggled and resets to unmuted at the start of each call. If Teams gets out of sync, press your hotkey once to re-align.</p>
+    <p style="margin-top:10px;">Click the icon to open the menu. From there you can <strong>Toggle Mute</strong>, <strong>Toggle Camera</strong>, access Settings, re-run the Setup Wizard, or quit the app.</p>
   </div>
 
   <!-- ── Hotkeys ── -->
@@ -348,28 +386,48 @@
     <ol class="steps">
       <li><div>Open the Lets Mute iPhone app.</div></li>
       <li><div>On your Mac, open Settings → Connections or the Setup Wizard — note the 6-digit pairing code.</div></li>
-      <li><div>Type the code in the iPhone app and tap Connect.</div></li>
+      <li><div>Type the code in the iPhone app and tap <strong>Connect</strong>.</div></li>
     </ol>
-    <p style="margin-top:14px;">Both devices must be on the same Wi-Fi network. Once paired, the iPhone reconnects automatically when both are on the same network.</p>
+    <p style="margin-top:14px;">Both devices must be on the same Wi-Fi network. Once paired, the iPhone reconnects automatically whenever both are on the same network.</p>
+    <p style="margin-top:10px;"><strong>Using the Apple Watch app?</strong> Pair the iPhone app first — the Watch app routes all commands through the iPhone. Once the iPhone is paired, open the Watch app and follow its pairing steps to give the Watch its own token.</p>
   </div>
   <div class="card">
     <h2>iPhone controls</h2>
     <ul>
-      <li><strong>Mute tab</strong> — tap the large circle to toggle mute. Green = live, red = muted.</li>
+      <li><strong>Mute tab</strong> — tap the large circle to toggle mute. The icon reflects best-known state (always accurate for Zoom and Webex; tracks toggles for Teams).</li>
+      <li><strong>Camera tab</strong> — tap to toggle your camera.</li>
       <li><strong>Push to Talk tab</strong> — hold the button to speak; release to re-mute.</li>
-      <li><strong>Leave tab</strong> — hold for 3 seconds to leave the current call.</li>
+      <li><strong>Leave tab</strong> — hold for 3 seconds to leave the current call. Hidden automatically when the active app doesn't support remote leave.</li>
     </ul>
   </div>
 
   <!-- ── Watch ── -->
   <p class="section-label">Apple Watch app</p>
+
+  <div class="callout">
+    <span class="callout-icon">📱</span>
+    <div>The Watch app works <strong>through your iPhone</strong>. The iPhone app must be installed and paired with your Mac. After that, iOS wakes the iPhone app automatically in the background — you don't need to open it. The only exception is if you have force-quit it from the app switcher.</div>
+  </div>
+
+  <div class="card">
+    <h2>Watch pairing</h2>
+    <ol class="steps">
+      <li><div>Pair the <strong>iPhone app</strong> with your Mac first — see the iPhone section above.</div></li>
+      <li><div>Install the Watch app from the Watch app on your iPhone (it appears under the Lets Mute Remote app).</div></li>
+      <li><div>Open the Watch app on your wrist. Tap <strong>Pair with Mac</strong>.</div></li>
+      <li><div>Enter the 6-digit code shown in the Mac app (Settings → Connections or the Setup Wizard) and tap <strong>Pair</strong>.</div></li>
+    </ol>
+    <p style="margin-top:14px;">The Watch communicates with the Mac by routing commands through the iPhone app via Apple's WatchConnectivity framework. Your iPhone must be in Bluetooth range of your Watch and on the same Wi-Fi network as your Mac.</p>
+  </div>
+
   <div class="card">
     <h2>Watch controls</h2>
-    <p>The Watch app has four pages (swipe to navigate):</p>
+    <p>The Watch app has up to five pages (swipe to navigate):</p>
     <ul style="margin-top:10px;">
-      <li><strong>Toggle</strong> — tap Mute / Unmute button.</li>
+      <li><strong>Toggle</strong> — tap Toggle Mute. The mic icon reflects best-known state.</li>
+      <li><strong>Camera</strong> — tap Toggle Camera. The video icon reflects best-known state.</li>
       <li><strong>Push to Talk</strong> — hold the pill to speak, release to re-mute.</li>
-      <li><strong>Leave Meeting</strong> — hold 3 seconds to leave the call.</li>
+      <li><strong>Leave Meeting</strong> — hold 3 seconds to leave the call. Hidden automatically when the active app doesn't support remote leave.</li>
       <li><strong>Unpair</strong> — disconnect this Watch from your Mac.</li>
     </ul>
     <p style="margin-top:12px;">Haptic feedback confirms every action.</p>
@@ -389,7 +447,7 @@
       <tbody>
         <tr style="border-bottom:1px solid var(--border);">
           <td style="padding:10px 0;"><strong>Accessibility</strong></td>
-          <td style="padding:10px 0; color:var(--muted);">Read and click the mute button in Zoom, Teams, and Webex</td>
+          <td style="padding:10px 0; color:var(--muted);">Read and interact with meeting controls in Zoom, Teams, and Webex</td>
           <td style="padding:10px 0; color:var(--red);">Yes</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border);">
@@ -401,11 +459,6 @@
           <td style="padding:10px 0;"><strong>Calendars</strong></td>
           <td style="padding:10px 0; color:var(--muted);">Show your next meeting in the menu bar</td>
           <td style="padding:10px 0; color:var(--orange);">Optional</td>
-        </tr>
-        <tr>
-          <td style="padding:10px 0;"><strong>Automation</strong></td>
-          <td style="padding:10px 0; color:var(--muted);">Control your browser to mute Google Meet</td>
-          <td style="padding:10px 0; color:var(--orange);">For Meet only</td>
         </tr>
       </tbody>
     </table>
@@ -429,17 +482,9 @@
   </div>
 
   <div class="card">
-    <h2>Zoom mute state shows incorrectly</h2>
-    <p>Lets Mute reads mute state via the Accessibility API. If the Zoom window is hidden or minimized for a long time, it may fall back to optimistic tracking (it assumes the last known state is still correct). Opening the Zoom window for a moment re-syncs the state.</p>
-  </div>
-
-  <div class="card">
-    <h2>Google Meet doesn't mute</h2>
-    <ul>
-      <li>Make sure Automation permission is granted for your browser in System Settings → Privacy &amp; Security → Automation.</li>
-      <li>The first time you use it, macOS will prompt you — click Allow.</li>
-      <li>Meet must be open in a tab (not in a separate window) in a supported browser.</li>
-    </ul>
+    <h2>Mute or camera icon out of sync</h2>
+    <p><strong>Zoom and Webex:</strong> state is read via the Accessibility API and stays in sync automatically. If the icon drifts (e.g. after muting directly in the app while the Zoom window was hidden), press your hotkey once — the next poll will re-sync within half a second.</p>
+    <p style="margin-top:10px;"><strong>Microsoft Teams:</strong> Teams does not expose its call controls to the Accessibility API, so Lets Mute cannot read the true mute or camera state from Teams. The icon tracks what Lets Mute has toggled and resets to unmuted/camera-on at the start of each call. If you mute or stop your camera directly inside Teams, press your hotkey once to re-align.</p>
   </div>
 
   <div class="card">
@@ -453,8 +498,19 @@
   </div>
 
   <div class="card">
+    <h2>Watch app not connecting or says "Not connected"</h2>
+    <ul>
+      <li><strong>Don't force-quit the iPhone app.</strong> iOS wakes the Lets Mute iPhone app automatically in the background — you don't need to keep it open. However, if you swiped it away in the app switcher, it won't relaunch automatically. Open it once and it will stay running in the background.</li>
+      <li><strong>Pair the iPhone app first.</strong> The Watch app requires the iPhone app to already be paired with your Mac before the Watch can pair.</li>
+      <li><strong>Keep your iPhone nearby.</strong> The Watch communicates with the iPhone via Bluetooth or Wi-Fi. Move your iPhone closer to your Watch if commands aren't going through.</li>
+      <li><strong>Check your Mac is reachable from the iPhone.</strong> The iPhone must be on the same Wi-Fi network as your Mac. The Watch itself doesn't need Wi-Fi access to the Mac.</li>
+      <li>If pairing keeps failing, unpair the Watch from within the Watch app and re-pair using a fresh code from the Mac.</li>
+    </ul>
+  </div>
+
+  <div class="card">
     <h2>Menu bar icon not changing</h2>
-    <p>The icon updates based on the mute state reported by the active driver's Accessibility API. If the driver returns no data (e.g. the app is not running or AX is unavailable), the icon remains in its last known state. Press your hotkey again to force a toggle.</p>
+    <p>The icon updates based on the mute state reported by the active app. If it stops updating, check that Accessibility is granted in System Settings → Privacy &amp; Security → Accessibility, and that the meeting app is running. For Teams specifically, the icon tracks toggles rather than reading live state — this is a Teams limitation.</p>
   </div>
 
   <!-- ── Contact ── -->
