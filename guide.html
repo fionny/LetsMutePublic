@@ -333,8 +333,8 @@
       <li><strong>🎙 Mic (filled)</strong> — unmuted / live</li>
       <li><strong>🎙/ Mic with slash</strong> — muted</li>
     </ul>
-    <p style="margin-top:14px;">For Zoom and Webex the icon stays in sync automatically via the Accessibility API. For Microsoft Teams — which does not expose its call controls to the Accessibility API — the icon tracks what Lets Mute has toggled and resets to unmuted at the start of each call. If Teams gets out of sync, press your hotkey once to re-align.</p>
-    <p style="margin-top:10px;">Click the icon to open the menu. From there you can <strong>Toggle Mute</strong>, <strong>Toggle Camera</strong>, access Settings, re-run the Setup Wizard, or quit the app.</p>
+    <p style="margin-top:14px;">For Zoom and Webex the icon stays in sync instantly via Accessibility observers — if you mute directly inside the app, the icon and Watch update within milliseconds. For Microsoft Teams — which does not expose its call controls to the Accessibility API — the icon tracks what Lets Mute has toggled and resets to unmuted at the start of each call. If Teams gets out of sync, press your hotkey once to re-align.</p>
+    <p style="margin-top:10px;">Click the icon to open the menu. From there you can <strong>Toggle Mute</strong>, <strong>Toggle Camera</strong>, access Settings, re-run the Setup Wizard, <strong>Check for Updates…</strong>, or quit the app.</p>
   </div>
 
   <!-- ── Hotkeys ── -->
@@ -447,7 +447,7 @@
       <tbody>
         <tr style="border-bottom:1px solid var(--border);">
           <td style="padding:10px 0;"><strong>Accessibility</strong></td>
-          <td style="padding:10px 0; color:var(--muted);">Read and interact with meeting controls in Zoom, Teams, and Webex</td>
+          <td style="padding:10px 0; color:var(--muted);">Read and interact with meeting controls in Zoom, Teams, Webex, and Google Meet</td>
           <td style="padding:10px 0; color:var(--red);">Yes</td>
         </tr>
         <tr style="border-bottom:1px solid var(--border);">
@@ -483,7 +483,7 @@
 
   <div class="card">
     <h2>Mute or camera icon out of sync</h2>
-    <p><strong>Zoom and Webex:</strong> state is read via the Accessibility API and stays in sync automatically. If the icon drifts (e.g. after muting directly in the app while the Zoom window was hidden), press your hotkey once — the next poll will re-sync within half a second.</p>
+    <p><strong>Zoom and Webex:</strong> state is read via Accessibility observers and updates instantly — if you mute or unmute directly inside the app, the Lets Mute icon and any connected Watch or iPhone reflect the change within milliseconds.</p>
     <p style="margin-top:10px;"><strong>Microsoft Teams:</strong> Teams does not expose its call controls to the Accessibility API, so Lets Mute cannot read the true mute or camera state from Teams. The icon tracks what Lets Mute has toggled and resets to unmuted/camera-on at the start of each call. If you mute or stop your camera directly inside Teams, press your hotkey once to re-align.</p>
   </div>
 
@@ -522,7 +522,7 @@
 </main>
 
 <footer>
-  <p>&copy; 2025 Fionn McGinley &mdash; <a href="privacy.html">Privacy Policy</a></p>
+  <p>&copy; 2026 Fionn McGinley &mdash; <a href="privacy.html">Privacy Policy</a></p>
 </footer>
 
 </body>
