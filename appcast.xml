@@ -23,8 +23,8 @@
             ]]></description>
             <enclosure
                 url="https://fionny.github.io/LetsMutePublic/releases/LetsMute-1.0.dmg"
-                sparkle:edSignature="REPLACE_WITH_SIGNATURE_FROM_sign_update"
-                length="REPLACE_WITH_FILE_SIZE_IN_BYTES"
+                sparkle:edSignature="kdhhq5jIQF/9zeL3lKS8YVhAgX8R8EGjX2fldIv89wSunMPEE0jn+mUXUm7IkmThHCBEGTXuH9cavi8UMr/qBA=="
+                length="5287355"
                 type="application/octet-stream"
             />
         </item>
