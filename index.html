@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lets Mute — One hotkey to mute them all</title>
+  <style>
+    :root {
+      --accent: #007AFF;
+      --green: #34C759;
+      --bg: #ffffff;
+      --surface: #f5f5f7;
+      --surface2: #ebebed;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --border: #d2d2d7;
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --surface: #1c1c1e;
+        --surface2: #2c2c2e;
+        --text: #f5f5f7;
+        --muted: #98989d;
+        --border: #38383a;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Hero ── */
+    header {
+      text-align: center;
+      padding: 80px 24px 64px;
+    }
+    .app-icon {
+      width: 110px;
+      height: 110px;
+      border-radius: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.16);
+    }
+    header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      margin-bottom: 14px;
+    }
+    .tagline {
+      font-size: 21px;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      font-weight: 400;
+      line-height: 1.45;
+    }
+
+    /* ── Download button ── */
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .download-btn:hover { opacity: 0.85; text-decoration: none; }
+    .download-btn svg { flex-shrink: 0; }
+    .req {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ── Layout ── */
+    main { max-width: 720px; margin: 0 auto; padding: 0 24px 96px; }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 52px 0 16px;
+    }
+
+    /* ── Feature grid ── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px;
+    }
+    .feature {
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      padding: 22px;
+    }
+    .feature-icon { font-size: 28px; margin-bottom: 10px; }
+    .feature h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .feature p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 14px;
+    }
+    .card h2 { font-size: 20px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.2px; }
+    .card p { color: var(--muted); font-size: 15px; }
+    .card p + p { margin-top: 8px; }
+
+    /* ── Nav links ── */
+    .nav-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 480px) { .nav-links { grid-template-columns: 1fr; } }
+    .nav-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.15s;
+    }
+    .nav-card:hover { background: var(--surface2); text-decoration: none; }
+    .nav-card-icon { font-size: 32px; flex-shrink: 0; }
+    .nav-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 2px; }
+    .nav-card p { font-size: 14px; color: var(--muted); }
+
+    /* ── Companion card ── */
+    .companion {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .companion-icons { font-size: 36px; flex-shrink: 0; line-height: 1.2; }
+    .companion h2 { font-size: 20px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.2px; }
+    .companion p { font-size: 15px; color: var(--muted); }
+    .companion p + p { margin-top: 6px; }
+    .badge-optional {
+      display: inline-block;
+      background: var(--surface2);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 2px 9px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+    }
+    @media (max-width: 480px) {
+      .companion { flex-direction: column; gap: 12px; }
+    }
+
+    /* ── Privacy note ── */
+    .privacy-note {
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 48px;
+      padding: 20px;
+    }
+    .privacy-note a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="icon.png" alt="Lets Mute icon" class="app-icon">
+  <h1>Lets Mute</h1>
+  <p class="tagline">One hotkey to mute Zoom, Teams, Webex, and Google Meet — no matter which app is in focus.</p>
+  <a class="download-btn" href="https://fionny.github.io/LetsMutePublic/releases/LetsMute-1.0.dmg">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 2v9.5M9 11.5l-3-3M9 11.5l3-3M3 14h12" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Download for Mac — Free
+  </a>
+  <p class="req">macOS 14 Ventura or later &nbsp;&middot;&nbsp; Apple Silicon &amp; Intel</p>
+</header>
+
+<main>
+
+  <p class="section-label">What it does</p>
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">🎙️</div>
+      <h3>Universal mute hotkey</h3>
+      <p>Press once to mute or unmute any supported app, even when it's in the background.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📅</div>
+      <h3>Meeting countdown</h3>
+      <p>Your next meeting's start time shows in the menu bar so you're never caught off guard.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔇</div>
+      <h3>Auto-mute on lock</h3>
+      <p>Mutes automatically when you lock your screen or disconnect your headphones.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">⚠️</div>
+      <h3>Speaking-while-muted alert</h3>
+      <p>A subtle warning when you're talking but your mic is muted.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🎥</div>
+      <h3>Camera control</h3>
+      <p>Toggle your camera on/off with a separate hotkey alongside mute.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔒</div>
+      <h3>Completely private</h3>
+      <p>No data leaves your device. No analytics, no accounts, no cloud.</p>
+    </div>
+  </div>
+
+  <p class="section-label">Supported apps</p>
+  <div class="card">
+    <h2>Works with the apps you use</h2>
+    <p>Zoom &nbsp;&middot;&nbsp; Microsoft Teams &nbsp;&middot;&nbsp; Webex &nbsp;&middot;&nbsp; Google Meet</p>
+    <p>Lets Mute reads and controls each app's native mute button — no virtual audio devices, no system hacks.</p>
+  </div>
+
+  <p class="section-label">Optional companion apps</p>
+  <div class="companion">
+    <div class="companion-icons">📱<br>⌚</div>
+    <div>
+      <div class="badge-optional">Optional</div>
+      <h2>iPhone &amp; Apple Watch</h2>
+      <p>Pair the free companion apps to mute and unmute from your wrist or phone — useful when you're away from the keyboard.</p>
+      <p>The Mac app works perfectly on its own. The companion apps are an optional extra for people who want wrist or phone control.</p>
+      <p style="margin-top:12px;"><a href="https://apps.apple.com/app/id6767853634">Download on the App Store</a></p>
+    </div>
+  </div>
+
+  <p class="section-label">Learn more</p>
+  <div class="nav-links">
+    <a class="nav-card" href="guide.html">
+      <div class="nav-card-icon">📖</div>
+      <div>
+        <h3>User Guide</h3>
+        <p>Setup, hotkeys, permissions, and all features explained.</p>
+      </div>
+    </a>
+    <a class="nav-card" href="privacy.html">
+      <div class="nav-card-icon">🔐</div>
+      <div>
+        <h3>Privacy Policy</h3>
+        <p>What Lets Mute does and doesn't collect — short version: nothing.</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="privacy-note">
+    Lets Mute collects no personal data and sends nothing to any server.<br>
+    <a href="privacy.html">Read the full privacy policy</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Fionn McGinley &nbsp;&middot;&nbsp; <a href="guide.html">User Guide</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="mailto:fionnyboy@gmail.com">Contact</a></p>
+</footer>
+
+</body>
+</html>
