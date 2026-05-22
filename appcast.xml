@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+        <title>Lets Mute</title>
+        <link>https://fionny.github.io/LetsMutePublic/appcast.xml</link>
+        <description>Lets Mute update feed</description>
+        <language>en</language>
+
+        <item>
+            <title>Lets Mute 1.0</title>
+            <pubDate>Thu, 22 May 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h3>Initial release</h3>
+                <ul>
+                    <li>Mute/unmute Zoom, Microsoft Teams, Webex, and Google Meet with a single hotkey</li>
+                    <li>Apple Watch and iPhone companion apps</li>
+                    <li>Auto-mute on lock screen and headphone disconnect</li>
+                    <li>Calendar integration shows next meeting in menu bar</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://fionny.github.io/LetsMutePublic/releases/LetsMute-1.0.dmg"
+                sparkle:edSignature="REPLACE_WITH_SIGNATURE_FROM_sign_update"
+                length="REPLACE_WITH_FILE_SIZE_IN_BYTES"
+                type="application/octet-stream"
+            />
+        </item>
+
+    </channel>
+</rss>
