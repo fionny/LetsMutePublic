@@ -7,6 +7,28 @@
         <language>en</language>
 
         <item>
+            <title>Lets Mute 1.1</title>
+            <pubDate>Sun, 25 May 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h3>What's new in 1.1</h3>
+                <ul>
+                    <li>iPhone and Apple Watch companion apps can now find your Mac on corporate or managed Wi-Fi networks where automatic discovery was previously blocked</li>
+                    <li>New "Nearby Macs" scanner shows a list of Macs running Lets Mute on your local network</li>
+                    <li>Manual IP entry as a fallback if network scanning is unavailable</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://fionny.github.io/LetsMutePublic/releases/LetsMute-1.1.dmg"
+                sparkle:edSignature="yWM36w5QKGwSsRa7Pq8F04ttt7URu82QBWrBKOocEuDKUTPCpUZgHBuFAILtGod3wvWgy3TWmF9MeB6MipcxCQ=="
+                length="5314304"
+                type="application/octet-stream"
+            />
+        </item>
+
+        <item>
             <title>Lets Mute 1.0</title>
             <pubDate>Thu, 22 May 2026 00:00:00 +0000</pubDate>
             <sparkle:version>2</sparkle:version>
