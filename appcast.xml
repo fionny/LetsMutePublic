@@ -7,6 +7,28 @@
         <language>en</language>
 
         <item>
+            <title>Lets Mute 1.1.2.2</title>
+            <pubDate>Mon, 26 May 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>7</sparkle:version>
+            <sparkle:shortVersionString>1.1.2.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h3>What's new in 1.1.2.2</h3>
+                <ul>
+                    <li>Fixed hotkeys stopping after a few minutes in a Teams call</li>
+                    <li>Fixed mic activity detection going stale after switching audio devices mid-call</li>
+                    <li>Hotkey engine now automatically re-arms if macOS disables it</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://fionny.github.io/LetsMutePublic/releases/LetsMute-1.1.2.2.dmg"
+                sparkle:edSignature="2WZSJFQODYd8Rb6VmTARJ0XkoUJg/+XH8hQazHdR4alWwrTgTHDnzPqHFoG6itwtXV0A+FfBywlk7hlGthJyCw=="
+                length="5355056"
+                type="application/octet-stream"
+            />
+        </item>
+
+        <item>
             <title>Lets Mute 1.1.2.1</title>
             <pubDate>Mon, 26 May 2026 00:00:00 +0000</pubDate>
             <sparkle:version>6</sparkle:version>
