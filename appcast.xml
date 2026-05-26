@@ -7,6 +7,29 @@
         <language>en</language>
 
         <item>
+            <title>Lets Mute 1.1.2</title>
+            <pubDate>Mon, 26 May 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>4</sparkle:version>
+            <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h3>What's new in 1.1.2</h3>
+                <ul>
+                    <li>Mac's IP address now shown in the Setup Wizard and Settings so you can easily connect your iPhone manually</li>
+                    <li>Push-to-talk, camera toggle, and leave meeting now each support a primary and secondary hotkey</li>
+                    <li>Leave meeting now requires holding the key for 3 seconds with an on-screen countdown — prevents accidental hang-ups</li>
+                    <li>Fixed a keychain prompt appearing on launch after updating</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://fionny.github.io/LetsMutePublic/releases/LetsMute-1.1.2.dmg"
+                sparkle:edSignature="JEGQGpZb6S3ZuwjAgIpIAZgcdXrs5tXCRLhhV6OJEtewqYQtb73PuXDtFhNWcHO68enFPjR4FglRvTXRHGgtCA=="
+                length="5314295"
+                type="application/octet-stream"
+            />
+        </item>
+
+        <item>
             <title>Lets Mute 1.1</title>
             <pubDate>Sun, 25 May 2026 00:00:00 +0000</pubDate>
             <sparkle:version>3</sparkle:version>

@@ -339,25 +339,37 @@
 
   <!-- ── Hotkeys ── -->
   <p class="section-label">Hotkeys</p>
+  <div class="callout">
+    <span class="callout-icon">💡</span>
+    <div>Every hotkey action supports a <strong>primary</strong> and <strong>secondary</strong> combo — useful if you switch between keyboards. Configure all of them in <strong>Settings → Hotkeys</strong> or during the Setup Wizard.</div>
+  </div>
   <div class="card">
     <h2>Toggle mute</h2>
     <p>Press your configured hotkey (default <kbd>F16</kbd> or <kbd>⌥⌘M</kbd>) from any app. Lets Mute detects which meeting app is active and toggles its mic.</p>
   </div>
   <div class="card">
     <h2>Push-to-talk</h2>
-    <p>Configure a Push-to-Talk key in Settings → Hotkeys. <strong>Hold</strong> the key to unmute; <strong>release</strong> to re-mute. Great for quick comments in a meeting without taking your hands off the keyboard.</p>
+    <p>Configure a Push-to-Talk key in Settings → Hotkeys. <strong>Hold</strong> the key to unmute; <strong>release</strong> to re-mute. Supports a primary and secondary combo. Great for quick comments without taking your hands off the keyboard.</p>
+  </div>
+  <div class="card">
+    <h2>Camera toggle</h2>
+    <p>Assign a hotkey to start or stop your camera without switching to the meeting app. Supports a primary and secondary combo. Configure in Settings → Hotkeys.</p>
   </div>
   <div class="card">
     <h2>Leave meeting</h2>
-    <p>Optionally configure a Leave combo in Settings → Hotkeys. Pressing it once fires the "end call" button in the active meeting app — no clicking required.</p>
+    <p>Assign a Leave combo in Settings → Hotkeys. <strong>Hold the key for 3 seconds</strong> to leave — a countdown appears on screen so you can release early to cancel. Supports a primary and secondary combo. Hidden automatically for apps that don't support remote leave.</p>
   </div>
 
   <!-- ── HUD ── -->
-  <p class="section-label">On-screen indicator</p>
+  <p class="section-label">On-screen indicators</p>
   <div class="card">
     <h2>Mute HUD</h2>
     <p>A small floating indicator appears above your Dock for 1.8 seconds whenever your mute state changes. It disappears on its own — no interaction needed.</p>
-    <p>If you speak while muted, an <strong>"You're on mute!"</strong> warning appears instead. This requires the microphone permission (to detect audio level) and can be turned off in Settings → General → Overlays.</p>
+    <p style="margin-top:10px;">If you speak while muted, an <strong>"You're on mute!"</strong> warning appears instead. This requires the microphone permission (to detect audio level) and can be turned off in Settings → General → Overlays.</p>
+  </div>
+  <div class="card">
+    <h2>Leave countdown HUD</h2>
+    <p>When you press a Leave hotkey, a countdown overlay appears above your Dock showing a 3-second ring timer. <strong>Release the key before it reaches zero to cancel.</strong> Hold for the full 3 seconds to confirm the leave.</p>
   </div>
 
   <!-- ── Automation ── -->
@@ -389,6 +401,7 @@
       <li><div>Type the code in the iPhone app and tap <strong>Connect</strong>.</div></li>
     </ol>
     <p style="margin-top:14px;">Both devices must be on the same Wi-Fi network. Once paired, the iPhone reconnects automatically whenever both are on the same network.</p>
+    <p style="margin-top:10px;">On corporate or managed Wi-Fi where automatic discovery doesn't work, tap <strong>"Can't find Mac automatically?"</strong> to scan the local network for Macs running Lets Mute, or enter the Mac's IP address directly.</p>
     <p style="margin-top:10px;"><strong>Using the Apple Watch app?</strong> Pair the iPhone app first — the Watch app routes all commands through the iPhone. Once the iPhone is paired, open the Watch app and follow its pairing steps to give the Watch its own token.</p>
   </div>
   <div class="card">
@@ -492,7 +505,8 @@
     <ul>
       <li>Both devices must be on the same Wi-Fi network.</li>
       <li>The Mac app must be running (check your menu bar).</li>
-      <li>Firewall software may block local Bonjour discovery — check your firewall settings.</li>
+      <li><strong>On corporate or managed Wi-Fi</strong> — enterprise networks often block Bonjour (mDNS) between devices. Tap <strong>"Can't find Mac automatically?"</strong> on the pairing screen to scan for Macs on the network. The app will show a list of Macs running Lets Mute — tap yours to connect. You can also enter the Mac's IP address manually (find it in System Settings → Wi-Fi → Details).</li>
+      <li>Firewall software may block local connections — on the Mac, go to System Settings → Privacy &amp; Security → Firewall and make sure Lets Mute is allowed.</li>
       <li>If still stuck, tap Settings → Unpair from Mac and re-pair using the code in the Mac app.</li>
     </ul>
   </div>
@@ -522,7 +536,7 @@
 </main>
 
 <footer>
-  <p>&copy; 2026 Fionn McGinley &mdash; <a href="privacy.html">Privacy Policy</a></p>
+  <p>&copy; 2026 Fionn McGinley &nbsp;&middot;&nbsp; <a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="mailto:fionnyboy@gmail.com">Contact</a></p>
 </footer>
 
 </body>
