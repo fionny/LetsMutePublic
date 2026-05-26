@@ -7,6 +7,27 @@
         <language>en</language>
 
         <item>
+            <title>Lets Mute 1.1.2.6b14</title>
+            <pubDate>Mon, 26 May 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>14</sparkle:version>
+            <sparkle:shortVersionString>1.1.2.6b14</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h3>What's new in 1.1.2.6b14</h3>
+                <ul>
+                    <li>Fixed the Input Monitoring permission dialog appearing on launch when Accessibility permission had been revoked (e.g. after re-installing from a DMG)</li>
+                    <li>Hotkey engine now silently waits for Input Monitoring to be granted rather than triggering the system dialog unexpectedly</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://fionny.github.io/LetsMutePublic/releases/LetsMute-1.1.2.6b14.dmg"
+                sparkle:edSignature="nfpgNVCJ1rr6w9h7v1B8GOsJ1qqiynjgYwWASexDSYQNZ5A+fiFgGgdxnYGbFfMXsRCHLD1xOY6sJIQh54QsBQ=="
+                length="5547097"
+                type="application/octet-stream"
+            />
+        </item>
+
+        <item>
             <title>Lets Mute 1.1.2.6</title>
             <pubDate>Mon, 26 May 2026 00:00:00 +0000</pubDate>
             <sparkle:version>13</sparkle:version>
