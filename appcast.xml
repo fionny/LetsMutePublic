@@ -7,6 +7,26 @@
         <language>en</language>
 
         <item>
+            <title>Lets Mute 1.1.2.5</title>
+            <pubDate>Mon, 26 May 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>10</sparkle:version>
+            <sparkle:shortVersionString>1.1.2.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h3>What's new in 1.1.2.5</h3>
+                <ul>
+                    <li>Fixed hotkeys not working when other apps are in focus — added a second hotkey tap mode that works even when Accessibility permission is stale after an app update</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://fionny.github.io/LetsMutePublic/releases/LetsMute-1.1.2.5.dmg"
+                sparkle:edSignature="jTpvLoj8gmw4wEfajHSArpQCTPtWJKJTyXeECsXCVbEzdTAjQETZj4iPQ1JhVPb5KfdQR0uZ8olhoj1M+8EeDw=="
+                length="5356537"
+                type="application/octet-stream"
+            />
+        </item>
+
+        <item>
             <title>Lets Mute 1.1.2.4</title>
             <pubDate>Mon, 26 May 2026 00:00:00 +0000</pubDate>
             <sparkle:version>9</sparkle:version>
