@@ -7,6 +7,27 @@
         <language>en</language>
 
         <item>
+            <title>Lets Mute 1.1.2.1</title>
+            <pubDate>Mon, 26 May 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>6</sparkle:version>
+            <sparkle:shortVersionString>1.1.2.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h3>What's new in 1.1.2.1</h3>
+                <ul>
+                    <li>Fixed phantom haptics on iPhone — no more buzzing when connected but not in a call</li>
+                    <li>Fixed double haptic on mute toggle</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://fionny.github.io/LetsMutePublic/releases/LetsMute-1.1.2.1.dmg"
+                sparkle:edSignature="+idbWLORMCd1eLfBV5QlgOKqa/l+3XZXtyuyrLDoJ62KLEAotXaJOBQxneWTR2jD03RMEU9/EzBbRrv91DTLAg=="
+                length="5353189"
+                type="application/octet-stream"
+            />
+        </item>
+
+        <item>
             <title>Lets Mute 1.1.2</title>
             <pubDate>Mon, 26 May 2026 00:00:00 +0000</pubDate>
             <sparkle:version>4</sparkle:version>
