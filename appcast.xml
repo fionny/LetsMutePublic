@@ -9,7 +9,7 @@
         <item>
             <title>Lets Mute 1.1.2.6</title>
             <pubDate>Mon, 26 May 2026 00:00:00 +0000</pubDate>
-            <sparkle:version>11</sparkle:version>
+            <sparkle:version>12</sparkle:version>
             <sparkle:shortVersionString>1.1.2.6</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
@@ -22,8 +22,8 @@
             ]]></description>
             <enclosure
                 url="https://fionny.github.io/LetsMutePublic/releases/LetsMute-1.1.2.6.dmg"
-                sparkle:edSignature="pbG8Q6JZ4rvn20NBNfqOPdWPJ3xY/Qyw9PqZzALqXqbJ9lTY2sr+GjczPicL4fFsBh5cB1c8O0FkGu7hqcJ4CA=="
-                length="5358727"
+                sparkle:edSignature="15EGoUdID7xGnEgSjLeUQ5a5dl78Bj2prkbI1Y+Rpw9qpXhYrHAPR+OpZ23dHAGC5kFSsijTvTKQzvwscPbXCQ=="
+                length="5358740"
                 type="application/octet-stream"
             />
         </item>
