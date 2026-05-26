@@ -7,6 +7,26 @@
         <language>en</language>
 
         <item>
+            <title>Lets Mute 1.1.2.3</title>
+            <pubDate>Mon, 26 May 2026 00:00:00 +0000</pubDate>
+            <sparkle:version>8</sparkle:version>
+            <sparkle:shortVersionString>1.1.2.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h3>What's new in 1.1.2.3</h3>
+                <ul>
+                    <li>Fixed hotkeys permanently stopping during long calls — the hotkey engine now re-arms itself every 10 seconds so macOS can't silently disable it</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://fionny.github.io/LetsMutePublic/releases/LetsMute-1.1.2.3.dmg"
+                sparkle:edSignature="6C9rvwTv4yMLfDMyfdT/nRv9mFvxAcn/cLw5iUFU2ZYHS/dtVV8M9un1GQnd3uYcPCt/aWNl3OPtiBeDF86JBw=="
+                length="5355583"
+                type="application/octet-stream"
+            />
+        </item>
+
+        <item>
             <title>Lets Mute 1.1.2.2</title>
             <pubDate>Mon, 26 May 2026 00:00:00 +0000</pubDate>
             <sparkle:version>7</sparkle:version>
